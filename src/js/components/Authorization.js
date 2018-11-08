@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 class Authorization extends Component {
 
   render() {
-    let url = 'https://res.cloudinary.com/sedwin/image/upload/v1540837604/';
     return (
       <div className="login animated slideInDown">
         <h2 className="login-header">Log in</h2>

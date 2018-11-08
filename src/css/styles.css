@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 body {
-  background-image: url('https://res.cloudinary.com/sedwin/image/upload/v1540837604/paper.jpg');
+  background-image: url('../img/background.jpg');
   background-repeat: no-repeat;
   background-size: 110%;
   font-family: 'Montserrat';

@@ -3,6 +3,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { load } from '../actions/pet_actions'
 
+import unicornImage from "../../img/unicorn.png"
+
 class Pet extends Component {
 
   componentDidMount() {
@@ -13,7 +15,7 @@ class Pet extends Component {
     return (
       <div>
         <div className="row justify-content-md-center">
-          <img style={{ height: 350 }} src="https://res.cloudinary.com/sedwin/image/upload/v1540844694/unicorn.png" alt="" />
+          <img style={{ height: 350 }} src={unicornImage} alt="" />
         </div>
         <div className="row justify-content-md-center p-4 font-weight-bold">{this.props.pet.name}</div>
       </div>

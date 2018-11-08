@@ -1,57 +1,56 @@
-const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-    context: __dirname + "/src",
-    entry: [
-        './js/index.js'
-    ],
-    output: {
-        path: __dirname + "/public",
-        filename: 'bundle.js'
-    },
     module: {
-
         rules: [
-            {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader']
-                })
-            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: 'babel-loader'
-            },
-            {
-                test: /\.(png|jpg|gif)$/,
-                use:
-                {
-                    loader: 'url-loader',
-                    options: {
-                        name: "/src/images/[name].[ext]",
-                      },
+                use: {
+                    loader: "babel-loader"
                 }
             },
             {
-                test: /\.(png|jpg|gif)$/,
+                test: /\.html$/,
+                use: [
+                    {
+                        loader: "html-loader",
+                        options: {
+                            minimize: true
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    "css-loader"
+                ]
+            },
+            {
+                test: /\.(png|jpg|jpeg)$/,
                 use: {
-                  loader: "file-loader",
-                  options: {
-                    name: "/src/images/[name].[ext]",
-                    outputPath: '/public/images/'
-                  },
-                },
-              },
+                    loader: "file-loader",
+                    options: {
+                        name: "[hash].[ext]",
+                        outputPath: 'img/'
+                    }
+                }
+            }
         ]
     },
     plugins: [
-        new ExtractTextPlugin('css/style.css')
-    ],
-    devServer: {
-        contentBase: __dirname + '/public',
-        historyApiFallback: true
-    }
-};
+        new CleanWebpackPlugin(["dist"]),
+        new HtmlWebpackPlugin({
+            template: "./src/html/index.html",
+            filename: "./index.html"
+        }),
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
+            chunkFilename: "[id].css"
+        })
+    ]
+}
