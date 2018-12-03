@@ -1,6 +1,6 @@
 import alertify from 'alertify.js'
 
-const initialState = [];
+const initialState = {};
 
 export default function pet(state = initialState, action) {
   switch (action.type) {
@@ -19,17 +19,18 @@ export default function pet(state = initialState, action) {
     case 'PET_HAD_PLAYED':
       alertify.success('coooool');
       return action.data;
-    // case 'PET_SLEEPING':
-    //   alertify.success('i dont wanna sleep anymore')
-    //   return action.data;
-    case 'PET_SLEEPING_ERROR':
+    case 'PET_SLEEPING':
       alertify.success('i dont wanna sleep anymore')
+      return action.data;
+    case 'PET_SLEEPING_ERROR':
+      alertify.success('i dont wanna sleep anymore');
       return state;
     case 'PET_TREATED':
       alertify.success('flcl');
       return action.data;
     case 'PET_TREATING_ERROR':
-      alertify.error('im healthy af')
+      alertify.error('im healthy af');
+      return state;
     default:
       return state;
   }

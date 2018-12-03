@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { load } from '../actions/pet_actions'
+import { load } from '../actions'
 
 import unicornImage from "../../img/unicorn.png"
 

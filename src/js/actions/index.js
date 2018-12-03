@@ -88,3 +88,18 @@ export const treat = () => dispatch => {
     });
   });
 };
+
+export const login = (login, password) => dispatch => {
+  const data = {login, password};
+  api.auth.post('/login', data).then(res => {
+    dispatch({
+      type: 'AUTH_SUCCESS',
+      data: res.data.data
+    });
+  }).catch(reason => {
+    dispatch({
+      type: 'AUTH_FAILED',
+      data: reason.response.data.errors
+    })
+  });
+};

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { feed, play, sleep, treat } from '../actions/pet_actions';
+import { feed, play, sleep, treat } from '../actions';
 
 import feedingImg from '../../img/feeding.png'
 import sleepImg from '../../img/zzz-sleep-symbol.png'
