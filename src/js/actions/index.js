@@ -21,7 +21,7 @@ export const feed = () => dispatch => {
   dispatch({
     type: 'PET_FEEDING'
   });
-  api.base.put('/pet/feed', credentials())
+  api.base.put('/pet/feed', null, credentials())
     .then(res => {
       dispatch({
         type: 'PET_FEEDED',
@@ -59,7 +59,7 @@ export const sleep = () => dispatch => {
   dispatch({
     type: 'PET_SLEEP'
   });
-  api.base.put('/pet/sleep', credentials())
+  api.base.put('/pet/sleep', null, credentials())
     .then(res => {
       dispatch({
         type: 'PET_SLEEPING',
@@ -76,7 +76,7 @@ export const treat = () => dispatch => {
   dispatch({
     type: 'PET_TREATING'
   });
-  api.base.put('/pet/treat', credentials())
+  api.base.put('/pet/treat', null, credentials())
     .then(res => {
       dispatch({
         type: 'PET_TREATED',
