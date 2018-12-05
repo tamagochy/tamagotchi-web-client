@@ -42,6 +42,9 @@ module.exports = {
             }
         ]
     },
+    devServer: {
+      historyApiFallback: true
+    },
     plugins: [
         new CleanWebpackPlugin(["dist"]),
         new HtmlWebpackPlugin({
@@ -53,4 +56,4 @@ module.exports = {
             chunkFilename: "[id].css"
         })
     ]
-}
+};
