@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { load } from '../actions/pet_actions'
 
-import unicornImage from "../../img/unicorn.png"
+import unicornImage from "../../img/sparkle.png"
 
 class Pet extends Component {
 

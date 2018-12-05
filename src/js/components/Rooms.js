@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 import { feed, play, sleep, treat } from '../actions/pet_actions';
 
 import feedingImg from '../../img/feeding.png'
-import sleepImg from '../../img/zzz-sleep-symbol.png'
+import sleepImg from '../../img/moon.png'
 import pillsImg from '../../img/pills.png'
-import gamepadImg from '../../img/gamepad.png'
+import gamepadImg from '../../img/abc-block.png'
 import brushImg from '../../img/inclined-hairbrush.png'
 import ticTacToeImg from '../../img/tic-tac-toe.png'
 import cameraImg from '../../img/camera.png'
 import ballImg from '../../img/soccer-ball-variant.png'
+
 
 class Rooms extends Component {
 

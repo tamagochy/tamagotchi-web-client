@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
-body {
+#body {
   background-image: url('../img/background.jpg');
   background-repeat: no-repeat;
   background-size: 110%;
   font-family: 'Montserrat';
   font-size: 20px;
+  /* background-color: pink */
 }
 
 .dpmenu {

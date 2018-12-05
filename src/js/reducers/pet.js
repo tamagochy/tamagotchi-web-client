@@ -5,31 +5,31 @@ const initialState = [];
 export default function pet(state = initialState, action) {
   switch (action.type) {
     case 'PET_LOADED':
-      alertify.success('im here, master');
+      alertify.success('Я туть');
       return action.data;
     case 'PET_FEEDED':
-      alertify.success('yummy');
+      alertify.success('Вкуснятина');
       return action.data;
     case 'PET_FEEDING_ERROR':
-      alertify.error('im not hungry, bruh');
+      alertify.error('Я не голодна');
       return state;
     case 'PET_PLAYING_ERROR':
-      alertify.error('dont play with me, bud');
+      alertify.error('Я больше не хочу играть(');
       return state;
     case 'PET_HAD_PLAYED':
-      alertify.success('coooool');
+      alertify.success('Крууууть');
       return action.data;
     // case 'PET_SLEEPING':
     //   alertify.success('i dont wanna sleep anymore')
     //   return action.data;
     case 'PET_SLEEPING_ERROR':
-      alertify.success('i dont wanna sleep anymore')
+      alertify.success('Я не хочу спать')
       return state;
     case 'PET_TREATED':
-      alertify.success('flcl');
+      alertify.success('Спасибо');
       return action.data;
     case 'PET_TREATING_ERROR':
-      alertify.error('im healthy af')
+      alertify.error('Я полностью здорова')
     default:
       return state;
   }
