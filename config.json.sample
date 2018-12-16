@@ -1,4 +1,4 @@
 {
-  "authUrl": "http://192.168.99.101:5001",
+  "authUrl": "http://192.168.99.100:5001",
   "basicMechanicsUrl": "http://192.168.99.100:8085"
 }
