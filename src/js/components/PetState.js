@@ -36,11 +36,6 @@ class PetState extends Component {
               <div className="col-6 animated slideInLeft">Отдых</div>
               <div className="col-5 animated fadeIn"><img src={`${url}${this.props.pet.rest}.png`} alt="" className="state" /></div>
             </div>
-
-            <div className="row">
-              <div className="col-6 animated slideInLeft">Активность </div>
-              <div className="col-5 animated fadeIn">{this.props.pet.active ? 'true' : 'false'}</div>
-            </div>
           </div>
           <div className="row justify-content-md-center animated zoomInDown">
             <img style={{ height: 350 }} src={unicornImage} alt="" />
