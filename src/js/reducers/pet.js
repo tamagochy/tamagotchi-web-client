@@ -5,7 +5,6 @@ const initialState = {};
 export default function pet(state = initialState, action) {
   switch (action.type) {
     case 'PET_LOADED':
-      alertify.success('Я туть');
       return action.data;
     case 'PET_FEEDED':
       alertify.success('Вкуснятина');

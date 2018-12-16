@@ -9,6 +9,11 @@ class PetState extends Component {
 
   componentDidMount() {
     this.props.load();
+    this.timer = setInterval(()=> this.props.load(), 5000);
+  }
+
+  componentWillUnmount() {
+    this.timer = null;
   }
 
   render() {
