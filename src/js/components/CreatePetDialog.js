@@ -14,7 +14,14 @@ class CreatePetDialog extends Component {
   onChangeName = e => this.setState({name: {value: e.target.value, invalid: false}});
 
   onCreate = () => {
-    if (!this.state.name.invalid) {
+    let valid = true;
+
+    if (!this.state.name.value) {
+      this.setState({name: {invalid: true}});
+      valid = false;
+    }
+
+    if (valid) {
       this.props.create(this.state.name.value);
     }
   };
