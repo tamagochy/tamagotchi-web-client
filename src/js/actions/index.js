@@ -118,3 +118,10 @@ export const login = (login, password) => dispatch => {
     })
   });
 };
+
+export const logout = () => dispatch => {
+  localStorage.removeItem('jwt');
+  dispatch({
+    type: 'LOGOUT_SUCCESS'
+  })
+};
