@@ -12,6 +12,9 @@ class PetState extends Component {
   }
 
   render() {
+    if (!this.props.petExists) {
+      return '';
+    }
     let url = 'https://res.cloudinary.com/sedwin/image/upload/v1540837604/';
     return (
       <div>
@@ -31,7 +34,6 @@ class PetState extends Component {
               <div className="col-6 animated slideInLeft">Настроение</div>
               <div className="col-5 animated fadeIn"><img src={`${url}${this.props.pet.mood}.png`} alt="" className="state" /></div>
             </div>
-
             <div className="row">
               <div className="col-6 animated slideInLeft">Отдых</div>
               <div className="col-5 animated fadeIn"><img src={`${url}${this.props.pet.rest}.png`} alt="" className="state" /></div>
@@ -48,7 +50,8 @@ class PetState extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  pet: state.pet
+  pet: state.pet,
+  petExists: state.petExists
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(

@@ -16,6 +16,9 @@ import ballImg from '../../img/soccer-ball-variant.png'
 class Rooms extends Component {
 
   render() {
+    if (!this.props.petExists) {
+      return '';
+    }
     return (
       <div className="fixed-bottom mx-auto row justify-content-md-center p-4 animated slideInUp">
         <div className="col-1">
@@ -57,12 +60,13 @@ class Rooms extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = (state) => ({
-  pet: state.pet
+  pet: state.pet,
+  petExists: state.petExists
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(

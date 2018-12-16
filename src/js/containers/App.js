@@ -6,6 +6,7 @@ import Rooms from '../components/Rooms';
 import Authorization from '../components/Authorization'
 import history from '../util/history';
 import AuthorizedUser from "../components/AuthorizedUser";
+import CreatePetDialog from "../components/CreatePetDialog";
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
       <Router history={history}>
         <div className="container-fluid p-3">
           <AuthorizedUser/>
+          <CreatePetDialog/>
           <Route exact path="/" component={Authorization}/>
           <Route exact path="/home" component={PetState}/>
           <Route exact path="/home" component={Rooms}/>

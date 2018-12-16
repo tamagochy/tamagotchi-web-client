@@ -17,6 +17,21 @@ export const load = () => dispatch => {
   });
 };
 
+export const create = (name) => dispatch => {
+  const data = {name};
+  api.base.post('/pet/create', data, credentials())
+    .then(res => {
+      dispatch({
+        type: 'PET_LOADED',
+        data: res.data.data
+      })
+    }).catch(() => {
+    dispatch({
+      type: 'PET_CREATE_ERROR'
+    })
+  })
+};
+
 export const feed = () => dispatch => {
   dispatch({
     type: 'PET_FEEDING'
