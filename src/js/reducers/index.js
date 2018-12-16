@@ -1,11 +1,13 @@
 import {combineReducers} from 'redux';
 
-import pet from './pet';
 import authorized from './authorized';
+import loginMode from './loginMode';
+import pet from './pet';
 import petExists from './petExists';
 
 export default combineReducers({
-  pet,
   authorized,
+  loginMode,
+  pet,
   petExists
 });

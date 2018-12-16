@@ -4,6 +4,7 @@ import {Router} from "react-router";
 import PetState from '../components/PetState';
 import Rooms from '../components/Rooms';
 import Authorization from '../components/Authorization'
+import Registration from '../components/Registration'
 import history from '../util/history';
 import AuthorizedUser from "../components/AuthorizedUser";
 import CreatePetDialog from "../components/CreatePetDialog";
@@ -17,6 +18,7 @@ class App extends Component {
           <AuthorizedUser/>
           <CreatePetDialog/>
           <Route exact path="/" component={Authorization}/>
+          <Route exact path="/" component={Registration}/>
           <Route exact path="/home" component={PetState}/>
           <Route exact path="/home" component={Rooms}/>
           <LogoutButton/>

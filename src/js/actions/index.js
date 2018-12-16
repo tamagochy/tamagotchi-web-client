@@ -1,4 +1,5 @@
 import {api, credentials} from "../api";
+import alertify from 'alertify.js'
 
 export const load = () => dispatch => {
   dispatch({
@@ -119,9 +120,32 @@ export const login = (login, password) => dispatch => {
   });
 };
 
+export const switchLoginMode = () => dispatch => {
+  dispatch({
+    type: 'LOGIN_MODE_SWITCHED'
+  })
+};
+
 export const logout = () => dispatch => {
   localStorage.removeItem('jwt');
   dispatch({
     type: 'LOGOUT_SUCCESS'
   })
+};
+
+export const register = (login, password, email) => dispatch => {
+  const data = {login, password, passwordConfirm: password, email};
+  api.auth.post('/registration', data)
+    .then(() => {
+      alertify.success('Регистрация прошла успешно, теперь можно войти!');
+      dispatch({
+        type: 'REGISTRATION_SUCCESS'
+      });
+    })
+    .catch(() => {
+      alertify.error('Что-то пошло не так... Наверное, стоит повторить попытку');
+      dispatch({
+        type: 'REGISTRATION_ERROR'
+      });
+    });
 };
