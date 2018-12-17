@@ -6,15 +6,11 @@
   background-size: 110%;
   font-family: 'Montserrat';
   font-size: 20px;
-  /* background-color: pink */
 }
 
 .dpmenu {
   background-color: transparent !important;
   border: none !important;
-}
-.state {
-  width: 150%;
 }
 
 .btn-image {
@@ -24,10 +20,6 @@
 .drop-btn-image {
   width: 100%;
 }
-
-/* .btn-hidden {
-  display: none;
-} */
 
 .btnr {
   background-color: transparent;
@@ -114,4 +106,34 @@
 /* Buttons' focus effect */
 .login .login-link:focus {
   border-color: #05a;
+}
+
+.progress {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 35px;
+  overflow: hidden;
+  background: #ff3232;
+  background: linear-gradient(to right, #ff0000 0%,#ff9933 25%,#ffff00 65%,#33cc33 100%);
+  border-radius: 30px;
+  border: 3px solid black;
+}
+
+.strips {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to right, transparent 0%, transparent 50%, #fff 50%, #fff 100%);
+  background-size: 0 100%;
+}
+
+.grayback {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: 1s all;
+  background-color: #ddd;
 }
