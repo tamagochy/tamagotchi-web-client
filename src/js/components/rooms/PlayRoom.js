@@ -26,7 +26,7 @@ class PlayRoom extends Component {
     }
 
     const actions = this.props.actions.map(a => (
-      <RoomAction action={a} handler={this.props.play}/>
+      <RoomAction key={a.code} action={a} handler={this.props.play}/>
     ));
 
     return (

@@ -26,7 +26,7 @@ class HospitalRoom extends Component {
     }
 
     const actions = this.props.actions.map(a => (
-      <RoomAction action={a} handler={this.props.treat}/>
+      <RoomAction key={a.code} action={a} handler={this.props.treat}/>
     ));
 
     return (

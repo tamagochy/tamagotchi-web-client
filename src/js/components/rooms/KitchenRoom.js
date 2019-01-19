@@ -32,7 +32,7 @@ class KitchenRoom extends Component {
     }
 
     const actions = this.getActions().map(a => (
-      <RoomAction action={a} handler={this.props.feed}/>
+      <RoomAction key={a.code} action={a} handler={this.props.feed}/>
     ));
 
     return (
