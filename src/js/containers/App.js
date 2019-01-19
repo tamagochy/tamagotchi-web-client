@@ -7,7 +7,6 @@ import Registration from '../components/Registration'
 import history from '../util/history';
 import AuthorizedUser from "../components/AuthorizedUser";
 import CreatePetDialog from "../components/CreatePetDialog";
-import LogoutButton from "../components/LogoutButton";
 
 class App extends Component {
   render() {
@@ -19,7 +18,6 @@ class App extends Component {
           <Route exact path="/" component={Authorization}/>
           <Route exact path="/" component={Registration}/>
           <Route exact path="/home" component={Rooms}/>
-          <LogoutButton/>
         </div>
       </Router>
     );

@@ -175,3 +175,9 @@ export const loadActions = () => dispatch => {
       });
     })
 };
+
+export const toggleMenu = () => dispatch => {
+  dispatch({
+    type: 'MENU_TOGGLED'
+  })
+};

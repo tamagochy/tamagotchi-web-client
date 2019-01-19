@@ -8,6 +8,7 @@ import currentRoom from './currentRoom';
 import playRoomActions from './playRoomActions';
 import kitchenActions from './kitchenActions';
 import hospitalActions from './hospitalActions';
+import menuOpened from './menuOpened';
 
 export default combineReducers({
   authorized,
@@ -17,5 +18,6 @@ export default combineReducers({
   currentRoom,
   playRoomActions,
   kitchenActions,
-  hospitalActions
+  hospitalActions,
+  menuOpened
 });
