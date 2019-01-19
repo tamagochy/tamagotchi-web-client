@@ -33,11 +33,15 @@ export const create = (name) => dispatch => {
   })
 };
 
-export const feed = () => dispatch => {
+export const feed = (action, room) => dispatch => {
   dispatch({
     type: 'PET_FEEDING'
   });
-  api.base.put('/pet/feed', null, credentials())
+  const data = {
+    action,
+    room
+  };
+  api.base.put('/pet/feed', data, credentials())
     .then(res => {
       dispatch({
         type: 'PET_FEEDED',
@@ -50,13 +54,14 @@ export const feed = () => dispatch => {
   });
 };
 
-export const play = (param) => dispatch => {
+export const play = (action, room) => dispatch => {
   dispatch({
     type: 'PET_PLAYING'
   });
 
   const data = {
-    "action": `${param}`
+    action,
+    room
   };
   api.base.put('/pet/play', data, credentials())
     .then(res => {
@@ -88,11 +93,15 @@ export const sleep = () => dispatch => {
   });
 };
 
-export const treat = () => dispatch => {
+export const treat = (action, room) => dispatch => {
   dispatch({
     type: 'PET_TREATING'
   });
-  api.base.put('/pet/treat', null, credentials())
+  const data = {
+    action,
+    room
+  };
+  api.base.put('/pet/treat', data, credentials())
     .then(res => {
       dispatch({
         type: 'PET_TREATED',
@@ -148,4 +157,21 @@ export const register = (login, password, email) => dispatch => {
         type: 'REGISTRATION_ERROR'
       });
     });
+};
+
+export const changeRoom = (room) => dispatch => {
+  dispatch({
+    type: 'ROOM_CHANGED',
+    room
+  })
+};
+
+export const loadActions = () => dispatch => {
+  api.base.get('/actions', credentials())
+    .then((res) => {
+      dispatch({
+        type: 'ACTIONS_LOADED',
+        actions: res.data.data
+      });
+    })
 };

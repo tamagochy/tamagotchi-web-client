@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {Route} from "react-router-dom";
 import {Router} from "react-router";
-import PetState from '../components/PetState';
-import Rooms from '../components/Rooms';
+import Rooms from '../components/MainScreen';
 import Authorization from '../components/Authorization'
 import Registration from '../components/Registration'
 import history from '../util/history';
@@ -19,7 +18,6 @@ class App extends Component {
           <CreatePetDialog/>
           <Route exact path="/" component={Authorization}/>
           <Route exact path="/" component={Registration}/>
-          <Route exact path="/home" component={PetState}/>
           <Route exact path="/home" component={Rooms}/>
           <LogoutButton/>
         </div>

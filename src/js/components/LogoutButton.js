@@ -14,9 +14,9 @@ export class LogoutButton extends Component {
     }
 
     return (
-      <p>
-        <button className='login-link' onClick={this.onLogout}>Закончить играть</button>
-      </p>
+      <div className='logout'>
+        <button onClick={this.onLogout}>Закончить играть</button>
+      </div>
     );
   }
 }

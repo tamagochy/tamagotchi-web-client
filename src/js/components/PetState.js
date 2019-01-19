@@ -28,7 +28,7 @@ class PetState extends Component {
     return (
       <div>
         <div className="p-4 col-12">
-          <div className="col-2">
+          <div className="col-3">
             <Indicator name='Здоровье' value={this.props.pet.health}/>
             <Indicator name='Голод' value={this.props.pet.hunger}/>
             <Indicator name='Настроение' value={this.props.pet.mood}/>
@@ -38,6 +38,7 @@ class PetState extends Component {
             <img style={{ height: 350 }} src={unicornImage} alt="" />
           </div>
           <div className="row justify-content-md-center p-4 font-weight-bold animated fadeIn">{this.props.pet.name}</div>
+          <div className="row justify-content-md-center p-4 font-weight-bold animated fadeIn">{this.props.pet.score}</div>
         </div>
       </div>
     );
