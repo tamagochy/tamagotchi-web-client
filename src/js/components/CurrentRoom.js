@@ -10,6 +10,10 @@ class CurrentRoom extends Component {
 
   getCurrentRoomComponent = () => {
     const code = this.props.room;
+    const pet = this.props.pet;
+    if (!pet || !pet.active) {
+      return '';
+    }
     if (code === 'playroom') {
       return <PlayRoom/>;
     }
@@ -26,15 +30,12 @@ class CurrentRoom extends Component {
   };
 
   render() {
-    return (
-      <div>
-        {this.getCurrentRoomComponent()}
-      </div>
-    );
+    return this.getCurrentRoomComponent();
   }
 }
 
 const mapStateToProps = (state) => ({
+  pet: state.pet,
   room: state.currentRoom
 });
 

@@ -267,3 +267,7 @@
 .leader-board {
 
 }
+
+.btnr.room-disabled {
+    opacity: 0.3;
+}
