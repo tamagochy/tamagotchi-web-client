@@ -10,7 +10,11 @@ class PetState extends Component {
 
   componentDidMount() {
     this.props.load();
-    this.timer = setInterval(()=> this.props.load(), 5000);
+    this.timer = setInterval(()=> {
+      if (this.props.authorized) {
+        this.props.load();
+      }
+    }, 5000);
   }
 
   componentWillUnmount() {
@@ -41,6 +45,7 @@ class PetState extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  authorized: state.authorized,
   pet: state.pet,
   petExists: state.petExists
 });

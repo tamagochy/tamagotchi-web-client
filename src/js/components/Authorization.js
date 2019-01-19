@@ -83,7 +83,7 @@ class Authorization extends Component {
 
 const mapStateToProps = (state) => ({
   authorized: state.authorized,
-  show: state.loginMode
+  show: state.loginMode && !state.authorized
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
