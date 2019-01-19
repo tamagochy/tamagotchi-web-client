@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Route} from "react-router-dom";
 import {Router} from "react-router";
-import Rooms from '../components/MainScreen';
+import Home from '../components/Home';
 import Authorization from '../components/Authorization'
 import Registration from '../components/Registration'
 import history from '../util/history';
@@ -17,7 +17,7 @@ class App extends Component {
           <AuthorizedUser/>
           <Route exact path="/" component={Authorization}/>
           <Route path="/register" component={Registration}/>
-          <Route path="/home" component={Rooms}/>
+          <Route path="/home" component={Home}/>
           <Route path="/create" component={CreatePetDialog}/>
           <Route path="/top" component={LeaderBoard}/>
         </div>

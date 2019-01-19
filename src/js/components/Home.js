@@ -4,7 +4,7 @@ import CurrentRoom from './CurrentRoom'
 import RoomButtons from './RoomButtons'
 import Menu from "./Menu";
 
-class MainScreen extends Component {
+class Home extends Component {
   render() {
     return (
       <div>
@@ -17,4 +17,4 @@ class MainScreen extends Component {
   }
 }
 
-export default MainScreen;
+export default Home;
