@@ -13,7 +13,7 @@ class AuthorizedUser extends Component {
 
   checkAndRedirect() {
     const pathname = this.props.history.location.pathname;
-    if (!this.props.authorized && (pathname !== '/')) {
+    if (!this.props.authorized && (pathname !== '/') && (pathname !== '/register')) {
       this.props.history.push('/');
     }
   };

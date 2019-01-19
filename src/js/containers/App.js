@@ -6,7 +6,8 @@ import Authorization from '../components/Authorization'
 import Registration from '../components/Registration'
 import history from '../util/history';
 import AuthorizedUser from "../components/AuthorizedUser";
-import CreatePetDialog from "../components/CreatePetDialog";
+import CreatePetDialog from "../components/CreatePet";
+import LeaderBoard from "../components/LeaderBoard";
 
 class App extends Component {
   render() {
@@ -14,10 +15,11 @@ class App extends Component {
       <Router history={history}>
         <div className="container-fluid p-3">
           <AuthorizedUser/>
-          <CreatePetDialog/>
           <Route exact path="/" component={Authorization}/>
-          <Route exact path="/" component={Registration}/>
-          <Route exact path="/home" component={Rooms}/>
+          <Route path="/register" component={Registration}/>
+          <Route path="/home" component={Rooms}/>
+          <Route path="/create" component={CreatePetDialog}/>
+          <Route path="/top" component={LeaderBoard}/>
         </div>
       </Router>
     );

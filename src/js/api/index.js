@@ -14,6 +14,10 @@ export const api = {
     base: axios.create({
         baseURL: apiConfig.basicMechanicsUrl,
         headers
+    }),
+    competition: axios.create({
+        baseURL: apiConfig.competitionUrl,
+        headers
     })
 };
 

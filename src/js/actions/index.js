@@ -1,5 +1,6 @@
 import {api, credentials} from "../api";
-import alertify from 'alertify.js'
+import alertify from 'alertify.js';
+import history from '../util/history';
 
 export const load = () => dispatch => {
   dispatch({
@@ -11,10 +12,13 @@ export const load = () => dispatch => {
         type: 'PET_LOADED',
         data: res.data.data
       })
-    }).catch(() => {
+    }).catch((err) => {
     dispatch({
       type: 'PET_LOADING_ERROR'
     });
+    if (err.response.data.errors[0].code === 'business.PetNotExists') {
+      history.push('/create');
+    }
   });
 };
 
@@ -25,7 +29,8 @@ export const create = (name) => dispatch => {
       dispatch({
         type: 'PET_LOADED',
         data: res.data.data
-      })
+      });
+      history.push('/home');
     }).catch(() => {
     dispatch({
       type: 'PET_CREATE_ERROR'
@@ -180,4 +185,22 @@ export const toggleMenu = () => dispatch => {
   dispatch({
     type: 'MENU_TOGGLED'
   })
+};
+
+export const loadTopPlayers = () => dispatch => {
+  api.competition.get('/getTopPlayers', credentials())
+    .then(res => {
+      dispatch({
+        type: 'TOP_PLAYERS_LOADED',
+        data: res.data.data
+      })
+    })
+};
+
+export const goHome = () => {
+  history.push('/home');
+};
+
+export const goTopPlayers = () => {
+  history.push('/top');
 };

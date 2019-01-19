@@ -10,8 +10,8 @@ class PetState extends Component {
 
   componentDidMount() {
     this.props.load();
-    this.timer = setInterval(()=> {
-      if (this.props.authorized) {
+    this.timer = setInterval(() => {
+      if (this.props.pet.name) {
         this.props.load();
       }
     }, 5000);
@@ -22,9 +22,6 @@ class PetState extends Component {
   }
 
   render() {
-    if (!this.props.petExists) {
-      return '';
-    }
     return (
       <div>
         <div className="p-4 col-12">
@@ -35,10 +32,12 @@ class PetState extends Component {
             <Indicator name='Отдых' value={this.props.pet.rest}/>
           </div>
           <div className="row justify-content-md-center animated zoomInDown">
-            <img style={{ height: 350 }} src={unicornImage} alt="" />
+            <img style={{height: 350}} src={unicornImage} alt=""/>
           </div>
-          <div className="row justify-content-md-center p-4 font-weight-bold animated fadeIn">{this.props.pet.name}</div>
-          <div className="row justify-content-md-center p-4 font-weight-bold animated fadeIn">{this.props.pet.score}</div>
+          <div
+            className="row justify-content-md-center p-4 font-weight-bold animated fadeIn">{this.props.pet.name}</div>
+          <div
+            className="row justify-content-md-center p-4 font-weight-bold animated fadeIn">{this.props.pet.score}</div>
         </div>
       </div>
     );
@@ -46,9 +45,7 @@ class PetState extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  authorized: state.authorized,
-  pet: state.pet,
-  petExists: state.petExists
+  pet: state.pet
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(

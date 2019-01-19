@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from "redux";
-import {create} from "../actions";
+import {create, goHome} from "../actions";
 import {connect} from "react-redux";
 
-class CreatePetDialog extends Component {
+class CreatePet extends Component {
   state = {
     name: {
       value: '',
@@ -27,9 +27,6 @@ class CreatePetDialog extends Component {
   };
 
   render() {
-    if (!this.props.opened) {
-      return '';
-    }
     return (
       <div className="login animated slideInDown">
         <h2 className="login-header">Придумай имя своему питомцу</h2>
@@ -48,13 +45,9 @@ class CreatePetDialog extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  opened: !state.petExists && state.authorized
-});
-
 const mapDispatchToProps = dispatch => bindActionCreators(
-  {create},
+  {create, goHome},
   dispatch
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreatePetDialog);
+export default connect(null, mapDispatchToProps)(CreatePet);

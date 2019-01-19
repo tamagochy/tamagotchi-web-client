@@ -18,9 +18,6 @@ export default function pet(state = initialState, action) {
     case 'PET_HAD_PLAYED':
       alertify.success('Крууууть');
       return action.data;
-    // case 'PET_SLEEPING':
-    //   alertify.success('i dont wanna sleep anymore')
-    //   return action.data;
     case 'PET_SLEEPING_ERROR':
       alertify.success('Я не хочу спать');
       return state;
@@ -30,6 +27,8 @@ export default function pet(state = initialState, action) {
     case 'PET_TREATING_ERROR':
       alertify.error('Я полностью здорова');
       return state;
+    case 'LOGOUT_SUCCESS':
+      return initialState;
     default:
       return state;
   }

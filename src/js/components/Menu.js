@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from "redux";
 import {connect} from 'react-redux';
-import {logout, toggleMenu} from "../actions";
+import {logout, toggleMenu, goTopPlayers} from "../actions";
 
 class Menu extends Component{
 
   toggle = () => this.props.toggleMenu();
 
   onSelectTopPlayers = () => {
-
+    this.toggle();
+    this.props.goTopPlayers();
   };
 
   onLogout = () => this.props.logout();
@@ -39,7 +40,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
-  {logout, toggleMenu},
+  {logout, toggleMenu, goTopPlayers},
   dispatch
 );
 

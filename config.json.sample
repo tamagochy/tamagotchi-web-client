@@ -1,4 +1,5 @@
 {
   "authUrl": "http://192.168.99.100:5001",
-  "basicMechanicsUrl": "http://192.168.99.100:8085"
+  "basicMechanicsUrl": "http://192.168.99.100:8085",
+  "competitionUrl": "http://192.168.99.100:8090"
 }

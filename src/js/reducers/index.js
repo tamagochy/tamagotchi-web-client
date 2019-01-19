@@ -1,23 +1,21 @@
 import {combineReducers} from 'redux';
 
 import authorized from './authorized';
-import loginMode from './loginMode';
 import pet from './pet';
-import petExists from './petExists';
 import currentRoom from './currentRoom';
 import playRoomActions from './playRoomActions';
 import kitchenActions from './kitchenActions';
 import hospitalActions from './hospitalActions';
 import menuOpened from './menuOpened';
+import topPlayers from './topPlayers';
 
 export default combineReducers({
   authorized,
-  loginMode,
   pet,
-  petExists,
   currentRoom,
   playRoomActions,
   kitchenActions,
   hospitalActions,
-  menuOpened
+  menuOpened,
+  topPlayers
 });

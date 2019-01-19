@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {bindActionCreators} from "redux";
-import {register, switchLoginMode} from "../actions";
+import {register} from "../actions";
 import {connect} from "react-redux";
 
 class Registration extends Component {
@@ -58,12 +58,9 @@ class Registration extends Component {
     }
   };
 
-  onSwitch = () => this.props.switchLoginMode();
+  toLogin = () => this.props.history.push('/');
 
   render() {
-    if (!this.props.show) {
-      return '';
-    }
     return (
       <div className="login animated slideInDown">
         <h2 className="login-header">Расскажи о себе немного</h2>
@@ -93,7 +90,7 @@ class Registration extends Component {
           </p>
           <hr/>
           <p>
-            <a className='login-link' onClick={this.onSwitch}>Войти</a>
+            <a className='login-link' onClick={this.toLogin}>Войти</a>
           </p>
         </form>
       </div>
@@ -102,12 +99,11 @@ class Registration extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  authorized: state.authorized,
-  show: !state.loginMode
+  authorized: state.authorized
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
-  {register, switchLoginMode},
+  {register},
   dispatch
 );
 
