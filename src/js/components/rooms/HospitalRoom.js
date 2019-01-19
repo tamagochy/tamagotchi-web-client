@@ -38,7 +38,7 @@ class HospitalRoom extends Component {
 }
 
 const mapStateToProps = state => ({
-  actions: state.hospitalActions
+  actions: state.actions.hospital
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(

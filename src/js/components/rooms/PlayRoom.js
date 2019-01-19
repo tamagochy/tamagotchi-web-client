@@ -38,7 +38,7 @@ class PlayRoom extends Component {
 }
 
 const mapStateToProps = state => ({
-  actions: state.playRoomActions
+  actions: state.actions.play
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(

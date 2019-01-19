@@ -44,7 +44,7 @@ class KitchenRoom extends Component {
 }
 
 const mapStateToProps = state => ({
-  actions: state.kitchenActions
+  actions: state.actions.kitchen
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
