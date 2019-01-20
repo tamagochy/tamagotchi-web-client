@@ -10,8 +10,10 @@ class Home extends Component {
       <div>
         <Menu/>
         <PetState/>
-        <CurrentRoom/>
-        <RoomButtons/>
+        <div className="row d-block fixed-bottom">
+          <CurrentRoom/>
+          <RoomButtons/>
+        </div>
       </div>
     );
   }

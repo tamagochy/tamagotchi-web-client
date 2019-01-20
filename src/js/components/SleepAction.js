@@ -9,7 +9,7 @@ class SleepAction extends Component {
 
   render() {
     return (
-      <button type="button" className="btn btn-light action" onClick={this.sleep}>
+      <button type="button" className="btn btn-light btn-action" onClick={this.sleep}>
         Уложить спать
       </button>
     );

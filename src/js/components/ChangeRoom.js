@@ -11,7 +11,7 @@ class ChangeRoom extends Component {
   render() {
     const className = 'btn btn-light btnr' + (!this.props.enabled ? ' room-disabled' : '');
     return (
-      <div className="col-1">
+      <div className="col-1 d-flex justify-content-center">
         <button type="button" className={className} onClick={this.onChange} title={this.props.description}>
           <img className="btn-image" src={this.props.image} alt="Перейти в комнату"/>
         </button>

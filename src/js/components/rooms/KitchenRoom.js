@@ -36,7 +36,7 @@ class KitchenRoom extends Component {
     ));
 
     return (
-      <div className='actions animated fadeIn'>
+      <div className='actions animated fadeIn row justify-content-center'>
         {actions}
       </div>
     );

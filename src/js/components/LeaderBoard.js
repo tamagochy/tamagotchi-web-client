@@ -35,7 +35,7 @@ class LeaderBoard extends Component {
         <h1>Список лидеров</h1>
         {this.leaderBoardTable()}
         <div>
-          <button type="button" className='btn btn-light' onClick={this.onGoHome}>
+          <button type="button" className='btn btn-light btn-action' onClick={this.onGoHome}>
             Вернуться к питомцу
           </button>
         </div>
