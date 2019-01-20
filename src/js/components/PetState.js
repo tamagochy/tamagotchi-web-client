@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {load} from '../actions'
+import {describeDisease, load} from '../actions'
 import Indicator from './Indicator';
 
 import unicornImage from "../../img/sparkle.png";
@@ -21,12 +21,20 @@ class PetState extends Component {
     this.timer = null;
   }
 
+
+  showHealthIndicator = () => this.props.pet.disease != null;
+
+  healthIndicatorHandler = () => this.props.describeDisease(this.props.pet.disease);
+
+
   render() {
     return (
       <div>
         <div className="p-4 col-12">
           <div className="col-3">
-            <Indicator name='Здоровье' value={this.props.pet.health}/>
+            <Indicator name='Здоровье' value={this.props.pet.health}
+                       showIndicator={this.showHealthIndicator()}
+                       indicatorHandler={this.healthIndicatorHandler}/>
             <Indicator name='Голод' value={this.props.pet.hunger}/>
             <Indicator name='Настроение' value={this.props.pet.mood}/>
             <Indicator name='Отдых' value={this.props.pet.rest}/>
@@ -49,7 +57,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
-  {load},
+  {load, describeDisease},
   dispatch
 );
 

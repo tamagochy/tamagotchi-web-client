@@ -19,10 +19,10 @@ export default function pet(state = initialState, action) {
       alertify.success('Крууууть');
       return action.data;
     case 'PET_SLEEPING_ERROR':
-      alertify.success('Я не хочу спать');
+      alertify.success('Я не хочу спать, давай лучше играть');
       return state;
     case 'PET_TREATED':
-      alertify.success('Спасибо');
+      alertify.success('Ура! Мне гораздо лучше');
       return action.data;
     case 'PET_TREATING_ERROR':
       alertify.error('Я полностью здорова');

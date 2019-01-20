@@ -26,7 +26,7 @@ class LeaderBoard extends Component {
       ))}
     </table>
   ) : (
-    <div>Loading...</div>
+    <div>Загрузка лидеров...</div>
   );
 
   render() {
@@ -36,7 +36,7 @@ class LeaderBoard extends Component {
         {this.leaderBoardTable()}
         <div>
           <button type="button" className='btn btn-light' onClick={this.onGoHome}>
-            Вернуться к питомцу!
+            Вернуться к питомцу
           </button>
         </div>
       </div>

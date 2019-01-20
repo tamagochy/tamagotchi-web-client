@@ -211,3 +211,18 @@ export const leaveTopPlayers = () => dispatch => {
 export const goTopPlayers = () => {
   history.push('/top');
 };
+
+export const describeDisease = (code) => () => {
+  if (code === "cold") {
+    alertify.error("Кажется, я простыла :(");
+  }
+  if (code === "angina") {
+    alertify.error("У меня болит горло :(");
+  }
+  if (code === "inflammationTricks") {
+    alertify.error("Я хочу игрушку и ещё конфет!");
+  }
+  if (code === "allergy") {
+    alertify.error("При виде котов у меня чешется спинка");
+  }
+};
