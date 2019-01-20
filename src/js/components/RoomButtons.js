@@ -23,10 +23,10 @@ class RoomButtons extends Component{
 
     return (
       <div className="fixed-bottom mx-auto row justify-content-md-center p-4 animated slideInUp">
-        <ChangeRoom handler={this.goKitchen} image={feedingImg} enabled={enabled}/>
-        <ChangeRoom handler={this.goBedroom} image={sleepImg} enabled={true}/>
-        <ChangeRoom handler={this.goHospital} image={pillsImg} enabled={enabled}/>
-        <ChangeRoom handler={this.goPlayRoom} image={gamepadImg} enabled={enabled}/>
+        <ChangeRoom handler={this.goKitchen} image={feedingImg} enabled={enabled} description="На кухню"/>
+        <ChangeRoom handler={this.goBedroom} image={sleepImg} enabled={true} description="В спальню"/>
+        <ChangeRoom handler={this.goHospital} image={pillsImg} enabled={enabled} description="К аптечке"/>
+        <ChangeRoom handler={this.goPlayRoom} image={gamepadImg} enabled={enabled} description="В игровую комнату"/>
       </div>
     );
   }
