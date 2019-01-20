@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from "redux";
 import {connect} from 'react-redux';
-import {loadTopPlayers, goHome} from "../actions";
+import {leaveTopPlayers, loadTopPlayers} from "../actions";
 
 class LeaderBoard extends Component {
   componentDidMount() {
@@ -10,25 +10,34 @@ class LeaderBoard extends Component {
     }
   }
 
-  onGoHome = () => this.props.goHome();
+  onGoHome = () => this.props.leaveTopPlayers();
+
+  leaderBoardTable = () => this.props.top ? (
+    <table className="leader-board-table">
+      <tr>
+        <th>Имя игрока</th>
+        <th>Игровой счет</th>
+      </tr>
+      {this.props.top.map(p => (
+        <tr key={p.login}>
+          <td>{p.login}</td>
+          <td>{p.value}</td>
+        </tr>
+      ))}
+    </table>
+  ) : (
+    <div>Loading...</div>
+  );
 
   render() {
-    const view = this.props.top ? (
-      this.props.top.map(p => (
-        <div key={p.login} className='row'>
-          <div className='col-6'>{p.login}</div>
-          <div className='col-6'>{p.value}</div>
-        </div>
-      ))
-    ) : (
-      <div>Loading...</div>
-    );
-
     return (
       <div className='leader-board'>
-        {view}
+        <h1>Список лидеров</h1>
+        {this.leaderBoardTable()}
         <div>
-          <div className='btn' onClick={this.onGoHome}>Вернуться</div>
+          <button type="button" className='btn btn-light' onClick={this.onGoHome}>
+            Вернуться к питомцу!
+          </button>
         </div>
       </div>
     );
@@ -40,7 +49,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
-  {loadTopPlayers, goHome},
+  {loadTopPlayers, leaveTopPlayers},
   dispatch
 );
 

@@ -201,6 +201,13 @@ export const goHome = () => {
   history.push('/home');
 };
 
+export const leaveTopPlayers = () => dispatch => {
+  dispatch({
+    type: 'TOP_PLAYERS_LEAVE'
+  });
+  goHome();
+};
+
 export const goTopPlayers = () => {
   history.push('/top');
 };
