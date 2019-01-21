@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from "redux";
-import {create, goHome} from "../actions";
+import {create, logout} from "../actions";
 import {connect} from "react-redux";
 
 class CreatePet extends Component {
@@ -47,6 +47,12 @@ class CreatePet extends Component {
               <button className="btn btn-primary w-100" type="button" onClick={this.onCreate}>Создать</button>
             </div>
           </div>
+          <hr/>
+          <div className="form-row">
+            <div className="col text-center">
+              <button className="btn btn-danger w-100" type="button" onClick={this.props.logout}>Выйти</button>
+            </div>
+          </div>
         </form>
       </div>
     );
@@ -54,7 +60,7 @@ class CreatePet extends Component {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators(
-  {create, goHome},
+  {create, logout},
   dispatch
 );
 
