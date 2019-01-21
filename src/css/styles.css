@@ -47,9 +47,11 @@
 
 .btnr {
     background-color: var(--pinkish-tan);
-    border-radius: 60% !important;
-    height: 80px;
-    width: 80px;
+    border-radius: 50% !important;
+    max-height: 80px;
+    min-height: 80px;
+    max-width: 80px;
+    min-width: 80px;
     border: 2px solid var(--white);
 }
 
