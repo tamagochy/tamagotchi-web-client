@@ -82,7 +82,7 @@ class Authorization extends Component {
               <div className="invalid-feedback">Без пароля войти нельзя, увы</div>
             </div>
           </div>
-          <div className="form-row">
+          <div className="form-row mb-3">
             <div className="col text-center">
               {this.props.loading ? (
                 <div className="spinner-border text-primary" role="status">
@@ -93,7 +93,6 @@ class Authorization extends Component {
               )}
             </div>
           </div>
-          <hr/>
           <div className="form-row">
             <div className="col text-center">
               <button className="btn btn-secondary w-100" type="button" onClick={this.goRegister}>Регистрация</button>

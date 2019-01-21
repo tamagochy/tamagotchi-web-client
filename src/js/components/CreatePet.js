@@ -42,12 +42,11 @@ class CreatePet extends Component {
               <div className="invalid-feedback">Необходимо придумать имя своему питомцу</div>
             </div>
           </div>
-          <div className="form-row">
+          <div className="form-row mb-3">
             <div className="col text-center">
               <button className="btn btn-primary w-100" type="button" onClick={this.onCreate}>Создать</button>
             </div>
           </div>
-          <hr/>
           <div className="form-row">
             <div className="col text-center">
               <button className="btn btn-danger w-100" type="button" onClick={this.props.logout}>Выйти</button>

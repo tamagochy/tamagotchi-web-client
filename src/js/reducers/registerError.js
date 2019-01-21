@@ -5,7 +5,7 @@ export default function registerError(state = initialState, action) {
     case 'REGISTRATION_SUCCESS':
       return initialState;
     case 'REGISTRATION_ERROR':
-      return "Не удалось зарегистрироваться, что-то пошло не так...";
+      return "Не удалось зарегистрироваться, что-то пошло не так";
     default:
       return state;
   }

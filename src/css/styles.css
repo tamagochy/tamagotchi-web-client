@@ -63,12 +63,28 @@
     margin: 16px auto;
 }
 
-.custom-form .invalid-feedback {
+.custom-form .invalid-feedback, .alert {
     text-shadow: none;
+    text-align: center;
+}
+
+.custom-form .btn {
+    border: none;
+}
+
+.custom-form .btn.btn-primary {
+    background-color: #1e3799;
+}
+
+.custom-form .alert {
+    background-color: #e74c3c;
+    border: none;
+    color: white;
+    font-size: 16px;
 }
 
 .custom-form-header {
-    background: #28d;
+    background: #1e3799;
     padding: 20px;
     font-size: 1.4em;
     font-weight: normal;

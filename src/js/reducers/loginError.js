@@ -5,7 +5,7 @@ export default function loginError(state = initialState, action) {
     case 'AUTH_SUCCESS':
       return initialState;
     case 'AUTH_FAILED':
-      return "Не удалось войти, что-то пошло не так...";
+      return "Не удалось войти, что-то пошло не так";
     default:
       return state;
   }
