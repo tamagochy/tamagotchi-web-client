@@ -32,13 +32,24 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|jpeg)$/,
-                use: {
+                exclude: /node_modules/,
+                use: [
+                  {
                     loader: "file-loader",
                     options: {
-                        name: "[hash].[ext]",
-                        outputPath: 'img/'
+                      name: "[hash].[ext]",
+                      outputPath: 'img/'
                     }
-                }
+                  },
+                  {
+                    loader: "image-webpack-loader",
+                    options: {
+                      optipng : {
+                        optimizationLevel: 4
+                      }
+                    }
+                  }
+                ]
             }
         ]
     },
