@@ -86,11 +86,11 @@ class Registration extends Component {
                    onChange={this.onChangeConfirmPassword}/>
           </p>
           <p>
-            <a className='login-link' onClick={this.onRegister}>Зарегестрироваться</a>
+            <a className='login-link' onClick={this.onRegister}>Зарегистрироваться</a>
           </p>
           <hr/>
           <p>
-            <a className='login-link' onClick={this.toLogin}>Войти</a>
+            <a className='login-link' onClick={this.toLogin}>Вернуться назад</a>
           </p>
         </form>
       </div>
