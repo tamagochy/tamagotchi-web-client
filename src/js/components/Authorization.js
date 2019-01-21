@@ -52,26 +52,53 @@ class Authorization extends Component {
 
   render() {
     return (
-      <div className="login animated slideInDown">
-        <h2 className="login-header">Представься, пожалуйста</h2>
-        <form className="login-container">
-          <p>
-            <input type="email" placeholder="Введи свое имя"
-                   value={this.state.login.value}
-                   onChange={this.onChangeLogin}/>
-          </p>
-          <p>
-            <input type="password" placeholder="А пароль помнишь?"
-                   value={this.state.password.value}
-                   onChange={this.onChangePassword}/>
-          </p>
-          <p>
-            <a className='login-link' onClick={this.onLogin}>Войти</a>
-          </p>
+      <div className="custom-form animated slideInDown">
+        <h2 className="custom-form-header">Представься, пожалуйста</h2>
+        <form className="p-2" noValidate>
+          {this.props.error ? (
+            <div className="alert alert-danger" role="alert">
+              {this.props.error}
+            </div>
+          ) : ''}
+          <div className="form-row">
+            <div className="col-12 mb-2">
+              <input type="text"
+                     placeholder="Введи свое имя"
+                     className={"form-control" + (this.state.login.isInvalid ? " is-invalid" : "")}
+                     value={this.state.login.value}
+                     onChange={this.onChangeLogin}
+                     required/>
+              <div className="invalid-feedback">Нужно сначала указать свое имя</div>
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="col-12 mb-4">
+              <input type="password"
+                     placeholder="А пароль помнишь?"
+                     className={"form-control" + (this.state.password.isInvalid ? " is-invalid" : "")}
+                     value={this.state.password.value}
+                     onChange={this.onChangePassword}
+                     required/>
+              <div className="invalid-feedback">Без пароля войти нельзя, увы</div>
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="col text-center">
+              {this.props.loading ? (
+                <div className="spinner-border text-primary" role="status">
+                  <span className="sr-only">Загрузка...</span>
+                </div>
+              ) : (
+                <button className="btn btn-primary w-100" type="button" onClick={this.onLogin}>Войти</button>
+              )}
+            </div>
+          </div>
           <hr/>
-          <p>
-            <a className='login-link' onClick={this.goRegister}>Регистрация</a>
-          </p>
+          <div className="form-row">
+            <div className="col text-center">
+              <button className="btn btn-secondary w-100" type="button" onClick={this.goRegister}>Регистрация</button>
+            </div>
+          </div>
         </form>
       </div>
     );
@@ -80,6 +107,8 @@ class Authorization extends Component {
 
 const mapStateToProps = (state) => ({
   authorized: state.authorized,
+  loading: state.loginLoading,
+  error: state.loginError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(

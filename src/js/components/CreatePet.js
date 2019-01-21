@@ -28,17 +28,25 @@ class CreatePet extends Component {
 
   render() {
     return (
-      <div className="login animated slideInDown">
-        <h2 className="login-header">Придумай имя своему питомцу</h2>
-        <form className="login-container">
-          <p>
-            <input type="text" placeholder="Имя питомца"
-                   value={this.state.name.value}
-                   onChange={this.onChangeName}/>
-          </p>
-          <p>
-            <a className='login-link' onClick={this.onCreate}>Создать</a>
-          </p>
+      <div className="custom-form animated slideInDown">
+        <h2 className="custom-form-header">Придумай имя своему питомцу</h2>
+        <form className="p-2" noValidate>
+          <div className="form-row">
+            <div className="col-12 mb-4">
+              <input type="text"
+                     placeholder="Имя питомца"
+                     className={"form-control" + (this.state.name.invalid ? " is-invalid" : "")}
+                     value={this.state.name.value}
+                     onChange={this.onChangeName}
+                     required/>
+              <div className="invalid-feedback">Необходимо придумать имя своему питомцу</div>
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="col text-center">
+              <button className="btn btn-primary w-100" type="button" onClick={this.onCreate}>Создать</button>
+            </div>
+          </div>
         </form>
       </div>
     );

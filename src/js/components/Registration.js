@@ -62,36 +62,79 @@ class Registration extends Component {
 
   render() {
     return (
-      <div className="login animated slideInDown">
-        <h2 className="login-header">Расскажи о себе немного</h2>
-        <form className="login-container">
-          <p>
-            <input type="text" placeholder="Введи свое имя"
-                   value={this.state.login.value}
-                   onChange={this.onChangeLogin}/>
-          </p>
-          <p>
-            <input type="email" placeholder="Введи свой email"
-                   value={this.state.email.value}
-                   onChange={this.onChangeEmail}/>
-          </p>
-          <p>
-            <input type="password" placeholder="Придумай длинный пароль"
-                   value={this.state.password.value}
-                   onChange={this.onChangePassword}/>
-          </p>
-          <p>
-            <input type="password" placeholder="Повтори пароль ещё раз"
-                   value={this.state.confirmPassword.value}
-                   onChange={this.onChangeConfirmPassword}/>
-          </p>
-          <p>
-            <a className='login-link' onClick={this.onRegister}>Зарегистрироваться</a>
-          </p>
+      <div className="custom-form animated slideInDown">
+        <h2 className="custom-form-header">Расскажи о себе немного</h2>
+        <form className="p-2" noValidate>
+          {this.props.error ? (
+            <div className="alert alert-danger" role="alert">
+              {this.props.error}
+            </div>
+          ) : ''}
+          <div className="form-row">
+            <div className="col-12 mb-2">
+              <input type="text"
+                     placeholder="Введи свое имя"
+                     className={"form-control" + (this.state.login.invalid ? " is-invalid" : "")}
+                     value={this.state.login.value}
+                     onChange={this.onChangeLogin}
+                     required/>
+              <div className="invalid-feedback">Необходимо указать свое имя</div>
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="col-12 mb-2">
+              <input type="text"
+                     placeholder="Введи свой email"
+                     className={"form-control" + (this.state.email.invalid ? " is-invalid" : "")}
+                     value={this.state.email.value}
+                     onChange={this.onChangeEmail}
+                     required/>
+              <div className="invalid-feedback">Необходимо указать свой email</div>
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="col-12 mb-2">
+              <input type="password"
+                     placeholder="Придумай длинный пароль"
+                     className={"form-control" + (this.state.password.invalid ? " is-invalid" : "")}
+                     value={this.state.password.value}
+                     onChange={this.onChangePassword}
+                     required/>
+              <div className="invalid-feedback">Некорректный пароль</div>
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="col-12 mb-4">
+              <input type="password"
+                     placeholder="Повтори пароль ещё раз"
+                     className={"form-control" + (this.state.confirmPassword.invalid ? " is-invalid" : "")}
+                     value={this.state.confirmPassword.value}
+                     onChange={this.onChangeConfirmPassword}
+                     required/>
+              <div className="invalid-feedback">Некорректный пароль</div>
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="col text-center">
+              {this.props.loading ? (
+                <div className="spinner-border text-primary" role="status">
+                  <span className="sr-only">Загрузка...</span>
+                </div>
+              ) : (
+                <button className="btn btn-primary w-100" type="button" onClick={this.onRegister}>
+                  Зарегистрироваться
+                </button>
+              )}
+            </div>
+          </div>
           <hr/>
-          <p>
-            <a className='login-link' onClick={this.toLogin}>Вернуться назад</a>
-          </p>
+          <div className="form-row">
+            <div className="col text-center">
+              <button className="btn btn-secondary w-100" type="button" onClick={this.toLogin}>
+                Вернуться назад
+              </button>
+            </div>
+          </div>
         </form>
       </div>
     );
@@ -99,7 +142,9 @@ class Registration extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  authorized: state.authorized
+  authorized: state.authorized,
+  loading: state.registerLoading,
+  error: state.registerError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(

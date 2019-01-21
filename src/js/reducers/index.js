@@ -5,7 +5,11 @@ import pet from './pet';
 import currentRoom from './currentRoom';
 import menuOpened from './menuOpened';
 import topPlayers from './topPlayers';
-import actions from './actions'
+import actions from './actions';
+import loginLoading from './loginLoading';
+import loginError from './loginError';
+import registerLoading from './registerLoading';
+import registerError from './registerError';
 
 export default combineReducers({
   authorized,
@@ -13,5 +17,9 @@ export default combineReducers({
   currentRoom,
   menuOpened,
   topPlayers,
-  actions
+  actions,
+  loginLoading,
+  loginError,
+  registerLoading,
+  registerError
 });

@@ -120,24 +120,28 @@ export const treat = (action, room) => dispatch => {
 };
 
 export const login = (login, password) => dispatch => {
+  dispatch({
+    type: 'AUTH_INIT',
+  });
   const data = {login, password};
   api.auth.post('/login', data).then(res => {
     dispatch({
       type: 'AUTH_SUCCESS',
       data: res.data.data
     });
-  }).catch(reason => {
-    dispatch({
-      type: 'AUTH_FAILED',
-      data: reason.response.data.errors
-    })
+  }).catch((e) => {
+    console.log(e.response);
+    if (e.response) {
+      dispatch({
+        type: 'AUTH_FAILED',
+        data: e.response.data.errors
+      });
+    } else {
+      dispatch({
+        type: 'AUTH_FAILED',
+      })
+    }
   });
-};
-
-export const switchLoginMode = () => dispatch => {
-  dispatch({
-    type: 'LOGIN_MODE_SWITCHED'
-  })
 };
 
 export const logout = () => dispatch => {
@@ -148,16 +152,19 @@ export const logout = () => dispatch => {
 };
 
 export const register = (login, password, email) => dispatch => {
+  dispatch({
+    type: 'REGISTRATION_INIT'
+  });
   const data = {login, password, passwordConfirm: password, email};
   api.auth.post('/registration', data)
     .then(() => {
-      alertify.success('Регистрация прошла успешно, теперь можно войти!');
       dispatch({
         type: 'REGISTRATION_SUCCESS'
       });
+      history.push('/');
+      alertify.success('Регистрация прошла успешно');
     })
     .catch(() => {
-      alertify.error('Что-то пошло не так... Наверное, стоит повторить попытку');
       dispatch({
         type: 'REGISTRATION_ERROR'
       });
